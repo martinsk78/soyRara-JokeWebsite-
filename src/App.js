@@ -1,4 +1,5 @@
 import { useState } from "react";
+import twitter from "./img/twiiter.gif";
 import "./App.css";
 import attackontitansgif from "./img/attakontitansgif.gif"; // Corrected import name
 import downCafe from "./img/downcafe.jpg"; // Corrected import name
@@ -36,7 +37,9 @@ function App() {
 					}
 				>
 					<p className="text-6xl text-center">Soy rara?</p>
-					<p className="text-4xl">Test cientificamente comprobado</p>
+					<p className="text-4xl text-center">
+						Test cientificamente comprobado
+					</p>
 					<button
 						className="text-3xl w-1/2 px-4 py-2 cursor-pointer text-black bg-yellow-300 rounded-sm"
 						onClick={() => {
@@ -162,14 +165,9 @@ function App() {
 								top: noButtonPosition.top,
 								left: noButtonPosition.left,
 							}}
-							onMouseEnter={handleNoButtonClick}
 							onClick={() => {
-								setButtonSelection(true);
-								setTimeout(() => {
-									setStage(4);
-									setButtonSelection(false);
-									setNoButtonPosition({ top: 0, left: 0 });
-								}, 2000);
+								setNoButtonPosition({ top: 0, left: 0 });
+								handleNoButtonClick();
 							}}
 						>
 							No
@@ -209,10 +207,13 @@ function App() {
 									setTimeout(() => {
 										setStage(5);
 										setButtonSelection(false);
-										setTimeout(() => {
-											setStage(6);
-										}, 2000);
 									}, 2000);
+									setTimeout(() => {
+										setStage(6);
+									}, 4000);
+									setTimeout(() => {
+										setStage(7);
+									}, 6000);
 								} else {
 									setGhSecondQuestion(true);
 								}
@@ -227,25 +228,10 @@ function App() {
 								top: noButtonPosition.top,
 								left: noButtonPosition.left,
 							}}
-							onMouseEnter={
-								ghSecondQuestion
-									? handleNoButtonClick
-									: undefined
-							}
 							onClick={() => {
 								if (ghSecondQuestion) {
+									setNoButtonPosition({ top: 0, left: 0 });
 									handleNoButtonClick();
-									setButtonSelection(true);
-									setTimeout(() => {
-										setStage(5);
-										setButtonSelection(false);
-										setTimeout(() => {
-											setStage(6);
-											setTimeout(() => {
-												setStage(7);
-											}, 2000);
-										}, 2000);
-									}, 2000);
 								} else {
 									setButtonSelection(true);
 									setTimeout(() => {
@@ -292,7 +278,7 @@ function App() {
 				>
 					<p className="absolute text-white top-10 left-10">vos</p>
 					<p className="text-5xl text-center text-white mx-40">
-						Hablas mas con tus gatas que con personas reales??
+						Hablas mas con tus gatos que con personas reales??
 					</p>
 					<div className="flex gap-5">
 						<button
@@ -338,7 +324,7 @@ function App() {
 							? {
 									opacity: "1",
 									zIndex: "100",
-									backgroundImage: `url(${catwoman})`,
+									backgroundImage: `url(${twitter})`,
 									backgroundRepeat: "no-repeat",
 									backgroundSize: "cover",
 									backgroundPosition: "center",
@@ -348,7 +334,8 @@ function App() {
 				>
 					<p className="absolute text-white top-10 left-10">vos</p>
 					<p className="text-5xl text-center text-white mx-40">
-						Sos autista? (sinceridad)
+						Tu tiempo libre se basa en usar twiter y pelearte con
+						gente teniendo como nombre de usuario user1939842391??
 					</p>
 					<div className="flex gap-5">
 						<button
@@ -361,7 +348,7 @@ function App() {
 							onClick={() => {
 								setButtonSelection(true);
 								setTimeout(() => {
-									setStage(8);
+									setStage(9);
 									setButtonSelection(false);
 								}, 2000);
 							}}
@@ -378,7 +365,7 @@ function App() {
 							onClick={() => {
 								setButtonSelection(true);
 								setTimeout(() => {
-									setStage(8);
+									setStage(9);
 									setButtonSelection(false);
 								}, 2000);
 							}}
@@ -386,6 +373,23 @@ function App() {
 							No
 						</button>
 					</div>
+				</div>
+				<div
+					className="absolute top-40 opacity-0 h-1/2 flex gap-10 z-0 transition-all items-center flex-col"
+					style={stage === 9 ? { opacity: "1", zIndex: "100" } : {}}
+				>
+					<p className="text-5xl text-center mx-40">
+						Habiendo respondido todas las preguntas positivamente,
+						la conclusion, cientifica, es q sos
+					</p>
+					<p
+						className="text-7xl opacity-0 text-center mx-40"
+						style={{
+							animation: "fade-in 1s forwards",
+						}}
+					>
+						✨Rara✨
+					</p>
 				</div>
 			</div>
 		</div>
