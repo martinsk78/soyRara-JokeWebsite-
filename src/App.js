@@ -21,7 +21,7 @@ function App() {
 	};
 	return (
 		<div className="h-screen w-screen flex items-center justify-center">
-			<div className="h-[70%] w-[60%] rounded border-slate-800 relative border flex items-center justify-center">
+			<div className="h-[80%] w-[90%] rounded border-slate-800 relative border flex items-center justify-center">
 				<div
 					className="absolute  opacity-0 h-full w-full z-0 flex gap-10 transition-all justify-center text-white items-center flex-col"
 					style={
@@ -32,6 +32,7 @@ function App() {
 									backgroundImage: `url(${elmoDancing})`,
 									backgroundRepeat: "no-repeat",
 									backgroundSize: "cover",
+									backgroundPosition: "center",
 								}
 							: {}
 					}
